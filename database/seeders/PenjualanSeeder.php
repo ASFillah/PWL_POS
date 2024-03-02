@@ -25,55 +25,55 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 1, 
-                'pembeli' => 'Amanda', 
+                'pembeli' => 'Fillah', 
                 'penjualan_kode' => 'PJN002', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 2, 
-                'pembeli' => 'Rosyadah', 
+                'pembeli' => 'Amanda', 
                 'penjualan_kode' => 'PJN003', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 2, 
-                'pembeli' => 'Aqilah', 
+                'pembeli' => 'Amanda', 
                 'penjualan_kode' => 'PJN004', 
                 'penjualan_tanggal' => now()
             ],
             [
-                'user_id' => 3, '
-                pembeli' => 'Tasha', 
+                'user_id' => 3, 
+                'pembeli' => 'Rosya', 
                 'penjualan_kode' => 'PJN005', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 3, 
-                'pembeli' => 'Pasha', 
+                'pembeli' => 'Rosya', 
                 'penjualan_kode' => 'PJN006', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 1, 
-                'pembeli' => 'Eka', 
+                'pembeli' => 'Fillah', 
                 'penjualan_kode' => 'PJN007', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 2, 
-                'pembeli' => 'Azziz', 
+                'pembeli' => 'Amanda', 
                 'penjualan_kode' => 'PJN008', 
                 'penjualan_tanggal' => now()
             ],
             [
-                'user_id' => 3, '
-                pembeli' => 'Maska', 
+                'user_id' => 3, 
+                'pembeli' => 'Rosya', 
                 'penjualan_kode' => 'PJN009', 
                 'penjualan_tanggal' => now()
             ],
             [
                 'user_id' => 1, 
-                'pembeli' => 'Rasyid', 
+                'pembeli' => 'Fillah', 
                 'penjualan_kode' => 'PJN010', 
                 'penjualan_tanggal' => now()
             ],
