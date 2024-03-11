@@ -55,15 +55,56 @@ class UserController extends Controller
         //     ],
         // );
 
-        $user = UserModel::firstOrNew(
-            [
-                'username' => 'manager33',
-                'nama' => 'Manager Tiga Tiga',
-                'password' => Hash::make('12345'),
-                'level_id' => 2
-            ],
-        );
+        // $user = UserModel::firstOrNew(
+        //     [
+        //         'username' => 'manager33',
+        //         'nama' => 'Manager Tiga Tiga',
+        //         'password' => Hash::make('12345'),
+        //         'level_id' => 2
+        //     ],
+        // );
+        // $user->save();
+        // return view('user', ['data' => $user]);
+
+        // $user = UserModel::create(
+        //     [
+        //         'username' => 'manager55',
+        //         'nama' => 'Manager55',
+        //         'password' => Hash::make('12345'),
+        //         'level_id' => 2
+        //     ],
+        // );
+    
+        // $user->username = 'manager56';
+
+        // $user->isDirty(); //cek apakah ada perubahan data
+        // $user->isDirty('username'); //cek apakah ada perubahan data pada kolom username (true)
+        // $user->isDirty('nama'); //cek apakah ada perubahan data pada kolom nama (false)
+        // $user->isDirty(['nama', 'username']); //cek apakah ada perubahan data pada kolom nama dan username (true)
+
+        // $user->isClean(); //cek apakah tidak ada perubahan data (false)
+        // $user->isClean('username'); //cek apakah tidak ada perubahan data pada kolom username (false)
+        // $user->isClean('nama'); //cek apakah tidak ada perubahan data pada kolom nama (true)
+        // $user->isClean(['nama', 'username']); //cek apakah tidak ada perubahan data pada kolom nama dan username (false)
+
+        // $user->isDirty(); //cek apakah ada perubahan data (false)
+        // $user->isClean(); //cek apakah tidak ada perubahan data (true)
+        // dd($user->isDirty());
+
+        $user = UserModel::create([
+            'username' => 'manager11',
+            'nama' => 'Manager 11',
+            'password' => Hash::make('12345'),
+            'level_id' => 2
+        ]);
+
+        $user->username = 'manager12';
+
         $user->save();
-        return view('user', ['data' => $user]);
+
+        $user->wasChanged(); //cek apakah ada perubahan data (true) 
+        $user->wasChanged('username'); //cek apakah ada perubahan data pada kolom username (true)
+        $user->wasChanged('nama'); //cek apakah ada perubahan data pada kolom nama (false)
+        dd($user->wasChanged(['nama', 'username'])); //true
     }
 }
