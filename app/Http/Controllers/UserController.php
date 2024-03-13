@@ -110,6 +110,9 @@ class UserController extends Controller
     
         $user = UserModel::all();
         return view('user', ['data' => $user]);
+
+        $user = UserModel::with('level')->get();
+        return view('user', ['data' => $user]);
     }
 
     public function tambah()
@@ -152,7 +155,7 @@ class UserController extends Controller
     {
         $user = UserModel::find($id);
         $user->delete();
-        
+
         return redirect('/user');
     }
 }
