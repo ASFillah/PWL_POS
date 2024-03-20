@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\DataTables\KategoriDataTable;
 use App\Models\KategoriModel;
+use Illuminate\Support\Facades\Log;
 
 class KategoriController extends Controller
 {
-    // public function index(KategoriDataTable $dataTable)
-    // {
-    //     return $dataTable->render('kategori.index');
-    // }
+    public function index(KategoriDataTable $dataTable)
+    {
+        Log::info('Showing user profile for DataTable: '. get_class($dataTable));
+        return $dataTable->render('kategori.index');
+    }
     public function create()
     {
         return view('kategori.create');
