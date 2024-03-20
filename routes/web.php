@@ -42,3 +42,10 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 // Route::get('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
 
 Route::delete('/user/hapus/{id}', [UserController::class, 'hapus']);
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::get('/kategori', [KategoriController::class, 'index']);
+
