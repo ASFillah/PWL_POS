@@ -1,4 +1,6 @@
-@extends('layout.app')
+@extends('layouts.template')
+
+@section('content')
 
 {{-- Customize layout sections --}}
 

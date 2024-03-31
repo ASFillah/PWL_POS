@@ -14,7 +14,12 @@ class KategoriController extends Controller
     public function index(KategoriDataTable $dataTable)
     {
         Log::info('Showing user profile for DataTable: '. get_class($dataTable));
-        return $dataTable->render('kategori.index');
+        $activeMenu = 'kategori';
+        $breadcrumb = (object) [
+            'title' => 'Kategori Data',
+            'list' => ['Home', 'Kategori']
+        ];
+        return $dataTable->render('kategori.index', ['activeMenu' => $activeMenu, 'breadcrumb' => $breadcrumb]);
     }
     public function create()
     {
