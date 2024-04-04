@@ -5,6 +5,16 @@
 @section('content_header_subtitle', 'Create')
 
 @section('content')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> Terdapat kesalahan input. <br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="container">
         <div class="card card-primary">
             <div class="card-header">
@@ -15,13 +25,21 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="kategori_kode">Nama Kategori</label>
+                        <label for="kategori_nama">Kode Kategori</label>
                         <input type="text" class="form-control" id="kategori_kode" name="kategori_kode" placeholder="Masukkan Nama Kategori">
+
+                        @error('kategori_kode')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
-                        <label for="kategori_nama">Kode Kategori</label>
+                        <label for="kategori_kode">Nama Kategori</label>
                         <input type="text" class="form-control" id="kategori_nama" name="kategori_nama" placeholder="Masukkan Kode Kategori">
+
+                        @error('kategori_nama')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="card-footer">
@@ -33,14 +51,4 @@
         </div>
     </div>
 @endsection
-
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
