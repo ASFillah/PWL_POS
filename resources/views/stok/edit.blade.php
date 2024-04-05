@@ -1,8 +1,11 @@
-@extends('layout.app')
+@extends('layouts.template')
 
-@section('subtitle', 'Stok')
-@section('content_header_title', 'Edit Stok')
-@section('content_header_subtitle', 'Edit Stok')
+{{-- Customize layout sections --}}
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'Level')
+
+{{-- Content --}}
 
 @section('content')
 @if ($errors->any())

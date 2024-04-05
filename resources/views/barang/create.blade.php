@@ -1,10 +1,11 @@
-@extends('adminlte::page')
+@extends('layouts.template')
 
-@section('title', 'Tambah Barang')
+{{-- Customize layout sections --}}
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'Level')
 
-@section('content_header')
-    <h1>Tambah Barang</h1>
-@stop
+{{-- Content --}}
 
 @section('content')
     <div class="card">

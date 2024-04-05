@@ -34,7 +34,12 @@ class StokController extends Controller
     {
         $barangs = Barang::all();
         $users = User::all();
-        return view('stok.create', compact('barangs', 'users'));
+        $activeMenu = 'Tambah Stok';
+        $breadcrumb = (object) [
+            'title' => 'Tambah Data',
+            'list' => ['Home', 'Tambah Stok']
+        ];
+        return view('stok.create', ['activeMenu' => $activeMenu, 'breadcrumb' => $breadcrumb, 'barangs' => $barangs, 'users' => $users]);
     }
 
     public function store(Request $request)
@@ -56,7 +61,13 @@ class StokController extends Controller
     {
         $barangs = Barang::all();
         $users = User::all();
-        return view('stok.edit', compact('stok', 'barangs', 'users'));
+        $activeMenu = 'Edit Stok';
+        $breadcrumb = (object) [
+            'title' => 'Edit Data',
+            'list' => ['Home', 'Edit Stok']
+        ];
+
+        return view('stok.edit', ['stok' => $stok, 'activeMenu' => $activeMenu, 'breadcrumb' => $breadcrumb, 'barangs' => $barangs, 'users' => $users]);
     }
 
     public function update(Request $request, Stok $stok)

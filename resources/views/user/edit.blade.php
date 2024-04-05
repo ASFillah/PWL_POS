@@ -1,5 +1,11 @@
-@extends('layout.app')
-{{-- @extends('user/template') --}}
+@extends('layouts.template')
+
+{{-- Customize layout sections --}}
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'Level')
+
+{{-- Content --}}
 
 @section('content')
 <div class="row ">

@@ -84,7 +84,13 @@ class PenjualanController extends Controller
     public function edit(Penjualan $penjualan)
     {
         $barangs = Barang::all();
-        return view('penjualan.edit', compact('penjualan', 'barangs'));
+        $activeMenu = 'penjualan';
+        $breadcrumb = (object) [
+            'title' => 'Edit Penjualan',
+            'list' => ['Home', 'Penjualan', 'Edit']
+        ];
+
+        return view('penjualan.edit', ['penjualan' => $penjualan, 'activeMenu' => $activeMenu, 'breadcrumb' => $breadcrumb, 'barangs' => $barangs]);
     }
 
     public function update(Request $request, Penjualan $penjualan)

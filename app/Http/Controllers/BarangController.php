@@ -30,7 +30,12 @@ class BarangController extends Controller
 
     public function create()
     {
-        return view('barang.create');
+        $activeMenu = 'Tambah Barang';
+        $breadcrumb = (object) [
+            'title' => 'Tambah Data',
+            'list' => ['Home', 'Tambah Barang']
+        ];
+        return view('barang.create', ['activeMenu' => $activeMenu, 'breadcrumb' => $breadcrumb]);
     }
 
     public function store(Request $request)
@@ -54,16 +59,16 @@ class BarangController extends Controller
     {
         $barang = Barang::find($id);
         // Log::info($barang);
-        
+
         $activeMenu = 'Edit Barang';
         $breadcrumb = (object) [
             'title' => 'Edit Data',
             'list' => ['Home', 'Edit Barang']
         ];
-    
+
         return view('barang.edit', compact('barang', 'activeMenu', 'breadcrumb'));
     }
-    
+
 
 
     public function update(Request $request, Barang $barang)

@@ -26,7 +26,8 @@ use App\Http\Controllers\PenjualanDetailController;
 //     return view('welcome');
 // });
 
-Route::get('/level', [LevelController::class, 'index']);
+// Route::get('/level', [LevelController::class, 'index']);
+
 
 // Group routes under '/kategori' prefix
 Route::prefix('kategori')->group(function () {
@@ -76,3 +77,6 @@ Route::resource('stok', StokController::class);
 Route::resource('penjualan', PenjualanController::class);
 
 Route::resource('penjualan_detail', PenjualanDetailController::class);
+
+
+Route::resource('level', LevelController::class);

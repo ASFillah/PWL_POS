@@ -1,6 +1,13 @@
-@extends('layout.app')
-{{-- @extends('user/template')  --}}
-@section('content') 
+@extends('layouts.template')
+
+{{-- Customize layout sections --}}
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'Level')
+
+{{-- Content --}}
+
+@section('content')
 <div class="row mb-5"> 
 <div class="col-lg-12 mt-5 margin-tb"> 
 <div class="float-left"> 

@@ -1,8 +1,11 @@
-@extends('layout.app')
+@extends('layouts.template')
 
-@section('subtitle', 'Penjualan')
-@section('content_header_title', 'Edit Penjualan')
-@section('content_header_subtitle', 'Edit Penjualan')
+{{-- Customize layout sections --}}
+@section('subtitle', 'Level')
+@section('content_header_title', 'Level')
+@section('content_header_subtitle', 'Level')
+
+{{-- Content --}}
 
 @section('content')
 @if ($errors->any())

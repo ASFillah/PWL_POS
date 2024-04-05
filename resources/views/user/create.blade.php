@@ -1,8 +1,7 @@
-@extends('layout.app')
-{{-- @extends('user/template')  --}}
+@extends('layouts.template')
 @section('content') 
-<div class="row mb-5"> 
-<div class="col-lg-12 mt-5 margin-tb"> 
+<div class="row mb-3"> 
+<div class="col-lg-12 mt-3 margin-tb"> 
 <div class="float-left"> 
 <h2>Membuat Daftar User</h2> 
 </div> 
@@ -59,7 +58,6 @@ placeholder="Masukkan password"></input>
         </div> 
 <div class="col-xs-12 col-sm-12 col-md-12 text-center"> 
 <button type="submit" class="btn btn-primary">Submit</button> 
-</div> 
 </div> 
 </form> 
 @endsection 
