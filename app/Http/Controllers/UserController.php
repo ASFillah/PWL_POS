@@ -67,7 +67,7 @@ class UserController extends Controller
 
         $level = LevelModel::all(); //ambil data level untuk ditampilkan di form
         $activeMenu = 'user'; //set menu yang sedang aktif
-        $level_id = LevelModel::all(); // Mengambil semua isi tabe
+        $level_id = LevelModel::all(); // Mengambil semua isi tabel
 
         return view('user.create', ['level_id' => $level_id, 'breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }

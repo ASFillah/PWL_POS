@@ -78,5 +78,4 @@ Route::resource('penjualan', PenjualanController::class);
 
 Route::resource('penjualan_detail', PenjualanDetailController::class);
 
-
 Route::resource('level', LevelController::class);
