@@ -95,17 +95,14 @@ Route::post('proses_register', [AuthController::class, 'proses_register'])->name
 //jika user login admin diarahkan ke AdminController
 //jika user login user diarahkan ke UserController
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('manager', function () {
-        return response()->json(['message' => 'Welcome to Admin Page']);
+    Route::group(['middleware' => ['cek_login:1']], function () {
+        Route::resource('admin', AdminController::class);
     });
-    // Route::group(['middleware' => ['cek_login:1']], function () {
-    //     Route::resource('admin', AdminController::class);
-    // });
 
-    // Route::group(['middleware' => ['cek_login:2']], function () {
-    //     // Route::resource('manager', ManagerController::class);
-    //     Route::get('manager', function () {
-    //         return response()->json(['message' => 'Welcome to Manager Page']);
-    //     });
-    // });
+    Route::group(['middleware' => ['cek_login:2']], function () {
+        // Route::resource('manager', ManagerController::class);
+        Route::get('manager', function () {
+            return response()->json(['message' => 'Welcome to Manager Page']);
+        });
+    });
 });

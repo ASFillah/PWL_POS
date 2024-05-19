@@ -65,6 +65,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         // tambahkan middleware alias dengan nama cek_login
-        'cek_login' => \App\Http\Middleware\Cek_login::class,
+        'cek_login' => \App\Http\Middleware\CekLogin::class,
     ];
 }

@@ -7,6 +7,7 @@ use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -42,10 +43,13 @@ class AuthController extends Controller
 
         //ambil data request username & password saja
         $credentials = $request->only('username', 'password');
+
+        Log::info('login', ['username' => $request->username, 'password' => $request->password]);
         //cek jika data username dan password valid (sesuai) dengan data
         if(Auth::attempt($credentials)){
             //jika berhasil simpan data user ya di variable $user
             $user = Auth::user();
+            Log::info('loginnnn', ['user' => $user]);
 
             //cek lagi jika level user admin maka diarahkan ke halaman admin
             if($user->level_id == '1'){
@@ -55,7 +59,8 @@ class AuthController extends Controller
 
             //cek lagi jika level user manager maka diarahkan ke halaman manager   
             elseif($user->level_id == '2'){
-                return redirect()->intended('manager');
+                // return response()->json(['message' => 'Welcome to Manager Page']);
+                return redirect('/');
             }
             //jika belum ada role maka ke halaman /
             return redirect()->intended('/');
