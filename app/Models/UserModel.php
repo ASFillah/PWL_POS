@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,14 +12,16 @@ class UserModel extends Authenticatable implements JWTSubject
     use HasFactory;
 
     protected $table = 'm_user';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $primaryKey = 'user_id';
+
 
     protected $fillable = [
         'level_id',
         'username',
         'nama',
-        'password'
+        'password',
+        'image'
     ];
 
     public function level(): BelongsTo
