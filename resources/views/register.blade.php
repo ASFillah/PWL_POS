@@ -1,91 +1,47 @@
-@extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Include Bootstrap CSS from CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+<form method="POST" action="{{ url('register') }}" enctype="multipart/form-data" class="p-3">
+    @csrf
+    <div class="form-group mb-3">
+        <label for="nama" class="form-label">Name</label>
+        <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Choose a username" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="level_id" class="form-label">Level</label>
+        <select name="level_id" id="level_id" class="form-control">
+            @foreach ($level_id as $data)
+            <option value="{{$data->level_id}}">{{$data->level_nama}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group mb-3">
+        <label for="picture" class="form-label">Profile Picture</label>
+        <input type="file" class="form-control" id="picture" name="picture" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</div>
 
-@php
-    $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login');
-    $register_url = View::getSection('register_url') ?? config('adminlte.register_url', 'register');
-
-    if (config('adminlte.use_route_url', false)) {
-        $login_url = $login_url ? route($login_url) : '';
-        $register_url = $register_url ? route($register_url) : '';
-    } else {
-        $login_url = $login_url ? url($login_url) : '';
-        $register_url = $register_url ? url($register_url) : '';
-    }
-@endphp
-
-@section('auth_header', __('adminlte::adminlte.register_message'))
-
-@section('auth_body')
-    <form action="{{ route('proses_register') }}" method="post">
-        @csrf
-
-        {{-- Nama field --}}
-        <div class="input-group mb-3">
-            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
-                value="{{ old('nama') }}" placeholder="Nama" autofocus>
-
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                </div>
-            </div>
-
-            @error('nama')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
-        {{-- Username field --}}
-        <div class="input-group mb-3">
-            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
-                value="{{ old('username') }}" placeholder="Username" autofocus>
-
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                </div>
-            </div>
-
-            @error('username')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
-        {{-- Password field --}}
-        <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                placeholder="{{ __('adminlte::adminlte.password') }}">
-                
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                </div>
-            </div>
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
-        {{-- Register button --}}
-        <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
-            <span class="fas fa-user-plus"></span>
-            {{ __('adminlte::adminlte.register') }}
-        </button>
-
-    </form>
-@endsection
-
-@section('auth_footer')
-    <p class="my-0">
-        <a href="{{ $login_url }}">
-            {{ __('adminlte::adminlte.i_already_have_a_membership') }}
-        </a>
-    </p>
-@endsection
+<!-- Include Bootstrap JS and its dependencies (Optional, for dynamic components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
